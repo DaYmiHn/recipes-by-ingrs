@@ -34,22 +34,29 @@ export default class Login extends Component {
   }
   
   addIngredient(ingr){
-    if(!this.state.myIngredients.includes(ingr))
-      client.service('users').find({
-        query: {email: this.props.profile.user.email}
-      }).then(({data})=>{
-        data = data[0];
-        // console.log(data.ingrs);
-        if(data.ingredients)
-          data.ingredients.push(ingr)
-        else
-          data.ingredients = [ingr]
-        client.service('users').patch(data._id, data).then(()=>{
-          this.getData()
-        })
+    if (this.state.myIngredients){
+      if(!this.state.myIngredients.includes(ingr)) {
+        client.service('users').find({
+          query: {email: this.props.profile.user.email}
+        }).then(({data})=>{
+          data = data[0];
+          // console.log(data.ingrs);
+          if(data.ingredients)
+            data.ingredients.push(ingr)
+          else
+            data.ingredients = [ingr]
+          client.service('users').patch(data._id, data).then(()=>{
+            this.getData()
+          })
+        });
+      } else {
+        window.alert('Уже в холодильнике')
+      }
+    } else {
+      client.service('users').patch(this.props.profile.user._id, {ingredients:[ingr]}).then(()=>{
+        this.getData()
       });
-    else
-      window.alert('Уже в холодильнике')
+    }
     
   }
 
