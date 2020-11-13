@@ -49,16 +49,7 @@ app.configure(services);
 app.configure(channels);
 const MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('mongodb://localhost:27017/domchanski')
-  .then(function(client){
-    // Set the model now that we are connected
-    app.service('recipe').Model = client.db('domchanski').collection('recipe');
 
-    // Now that we are connected, create a dummy Message
-    // app.service('recipe').create({
-    //   text: 'Message created on server'
-    // }).then(message => console.log('Created message', message));
-  }).catch(error => console.error(error));
 
 // Configure a middleware for 404s and the error handler
 

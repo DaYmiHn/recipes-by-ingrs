@@ -1,7 +1,9 @@
 import io from 'socket.io-client';
 import feathers from '@feathersjs/client';
+import config from './env';
 
-const host = 'http://192.168.0.2:3030';
+const host = window.location.hostname ? 'http://localhost:3030' : config.API_LINK ;   
+console.log('+++++++++'+host+'+++++++++')
 
 const socket = io(host, {
   transports: ['websocket'],

@@ -1,4 +1,4 @@
 {
-  "host": "domchanski_api_v2-app.feathersjs.com",
-  "port": "PORT"
+  "host": "http://api-for-recipe.herokuapp.com",
+  "port": "443"
 }

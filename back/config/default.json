@@ -7,14 +7,6 @@
     "max": 50
   },
   "authentication": {
-    "oauth": {
-      "redirect": "http://localhost:3000/",
-      "google": {
-        "key": "557780714706-3drfvira19ijilalglg0k63fs7p4r60q.apps.googleusercontent.com",
-        "secret": "9g4GaRTPMClXZ7icDZ2e8Sno",
-        "scope": ["openid", "email"]
-      }
-    },
     "entity": "user",
     "service": "users",
     "secret": "Aecp3S3L73WJQoUu3x5WbfHcKwQ=",
